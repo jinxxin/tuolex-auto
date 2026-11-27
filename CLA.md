@@ -1,5 +1,7 @@
 # Contributor License Agreement (short form)
 
+**简体中文** ｜ [English](CLA.en.md)
+
 提交贡献即表示你同意：
 
 1. 你拥有所提交内容的著作权，或已获得权利人授权；

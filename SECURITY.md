@@ -1,5 +1,7 @@
 # 安全策略 · Security Policy
 
+**简体中文** ｜ [English](SECURITY.en.md)
+
 ## 报告漏洞
 
 请**不要**通过公开 issue 报告安全漏洞。

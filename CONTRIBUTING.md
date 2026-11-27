@@ -1,5 +1,7 @@
 # 贡献指南 · Contributing
 
+**简体中文** ｜ [English](CONTRIBUTING.en.md)
+
 感谢愿意花时间改进这个工具的人。请先读完这一页，能省掉来回。
 
 ## 先提 issue，再提 PR

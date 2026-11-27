@@ -1,5 +1,7 @@
 # 变更记录 · Changelog
 
+**简体中文** ｜ [English](CHANGELOG.en.md)
+
 格式参考 Keep a Changelog；版本号遵循 SemVer。
 
 ## [0.1.0] — 未发布

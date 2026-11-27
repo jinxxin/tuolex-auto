@@ -1,5 +1,7 @@
 # Third-party notices
 
+**简体中文** ｜ [English](THIRD_PARTY_NOTICES.en.md)
+
 运行时依赖（均为宽松许可，允许商用与再分发）：
 
 | 组件 | 许可 |

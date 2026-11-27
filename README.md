@@ -77,7 +77,7 @@ docs/           建模说明与功能安全使用指南
 
 - [A-SPICE 过程模型（本项目如何建模）](docs/aspice-model.md) ｜ [English](docs/aspice-model.en.md)
 - [功能安全模块使用指南](docs/fs-guide.md) ｜ [English](docs/fs-guide.en.md)
-- [变更记录](CHANGELOG.md)
+- [变更记录](CHANGELOG.md) ｜ [English](CHANGELOG.en.md)
 
 ## 设计取舍
 
@@ -96,12 +96,12 @@ docs/           建模说明与功能安全使用指南
 ## 许可
 
 Apache-2.0（见 `LICENSE`）。标准文本不随本仓库分发；文中出现的标准名称归各自发布机构所有。
-名称与标识的使用见 [TRADEMARKS.md](TRADEMARKS.md)。
+名称与标识的使用见 [TRADEMARKS.md](TRADEMARKS.md) ｜ [English](TRADEMARKS.en.md)。
 
 ## 贡献与安全
 
-- 贡献流程与代码约定：[CONTRIBUTING.md](CONTRIBUTING.md)
-- 漏洞报告（请勿公开提 issue）：[SECURITY.md](SECURITY.md)
+- 贡献流程与代码约定：[CONTRIBUTING.md](CONTRIBUTING.md) ｜ [English](CONTRIBUTING.en.md)
+- 漏洞报告（请勿公开提 issue）：[SECURITY.md](SECURITY.md) ｜ [English](SECURITY.en.md)
 
 ## 联系
 
@@ -193,7 +193,7 @@ docs/           Modeling notes and functional safety guide
 
 - [A-SPICE process model (how this project models it)](docs/aspice-model.en.md) ｜ [简体中文](docs/aspice-model.md)
 - [Functional safety module guide](docs/fs-guide.en.md) ｜ [简体中文](docs/fs-guide.md)
-- [Changelog](CHANGELOG.md)
+- [Changelog](CHANGELOG.en.md) ｜ [简体中文](CHANGELOG.md)
 
 ### Design trade-offs
 
@@ -214,13 +214,13 @@ docs/           Modeling notes and functional safety guide
 ### License
 
 Apache-2.0 (see `LICENSE`). Standards texts are not distributed with this repository; standard names
-mentioned here belong to their respective publishers. See [TRADEMARKS.md](TRADEMARKS.md) for name and
-mark usage.
+mentioned here belong to their respective publishers. See [TRADEMARKS.en.md](TRADEMARKS.en.md) for name and
+mark usage ｜ [简体中文](TRADEMARKS.md).
 
 ### Contributing and security
 
-- Contribution workflow and code conventions: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Vulnerability reports (please do not open a public issue): [SECURITY.md](SECURITY.md)
+- Contribution workflow and code conventions: [CONTRIBUTING.en.md](CONTRIBUTING.en.md) ｜ [简体中文](CONTRIBUTING.md)
+- Vulnerability reports (please do not open a public issue): [SECURITY.en.md](SECURITY.en.md) ｜ [简体中文](SECURITY.md)
 
 ### Contact
 

@@ -1,5 +1,7 @@
 # 商标说明 · Trademarks
 
+**简体中文** ｜ [English](TRADEMARKS.en.md)
+
 - `tuoleX`、`妥了`、`tuoleauto` 等名称与标识归项目作者所有。
 - 本项目代码以 Apache-2.0 授权；**许可证不授予商标使用权**。
 - 你可以基于本代码提供服务或分发修改版，但请：
