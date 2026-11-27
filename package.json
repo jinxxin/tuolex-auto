@@ -37,10 +37,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.4",
-    "@tiptap/extension-placeholder": "^2.27.2",
+    "@tiptap/extension-placeholder": "^3.35.0",
     "@tiptap/pm": "^2.27.2",
-    "@tiptap/react": "^2.27.2",
-    "@tiptap/starter-kit": "^2.27.2",
+    "@tiptap/react": "^3.35.0",
+    "@tiptap/starter-kit": "^3.35.0",
     "antd": "^6.7.2",
     "dayjs": "^1.11.23",
     "dexie": "^4.4.7",
