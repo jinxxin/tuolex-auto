@@ -21,7 +21,7 @@ The first self-hostable version.
 
 - Standards and regulatory content library (this repository contains no standards text).
 - AI scaffolding and AI assistant.
-- Family collaboration (BOM / 3D model library).
+- Cross-product collaboration (BOM / 3D model library).
 - Multi-tenancy, trial provisioning, billing.
 
 ### Notes

@@ -14,7 +14,7 @@
 哈希链审计追踪、变更/问题（质量体系）、FMEA，以及**功能安全域**（HARA、安全需求链 SG/FSC/TSC、
 FMEDA 硬件度量、FTA、DFA、Safety Case、确认措施、安全计划）。导出 CSV/JSON。
 
-**社区版不含**：标准与法规内容库（不含任何标准正文）、AI 智能搭建、家族协同（BOM/3D）、
+**社区版不含**：标准与法规内容库（不含任何标准正文）、AI 智能搭建、跨产品协同（BOM/3D）、
 多租户与试用编排。这些属于商业版，如需了解请联系作者。
 
 ## 界面
@@ -102,6 +102,7 @@ Apache-2.0（见 `LICENSE`）。标准文本不随本仓库分发；文中出现
 
 - 贡献流程与代码约定：[CONTRIBUTING.md](CONTRIBUTING.md) ｜ [English](CONTRIBUTING.en.md)
 - 漏洞报告（请勿公开提 issue）：[SECURITY.md](SECURITY.md) ｜ [English](SECURITY.en.md)
+- 社区行为准则：[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) ｜ [English](CODE_OF_CONDUCT.en.md)
 
 ## 联系
 
@@ -129,7 +130,7 @@ safety requirement chain SG/FSC/TSC, FMEDA hardware metrics, FTA, DFA, safety ca
 measures, safety plan). CSV/JSON export.
 
 **Not included**: standards and regulatory content library (no standards text is bundled), AI-assisted
-scaffolding, family collaboration (BOM/3D), multi-tenancy and trial provisioning. These belong to the
+scaffolding, cross-product collaboration (BOM/3D), multi-tenancy and trial provisioning. These belong to the
 commercial edition; please contact the author for details.
 
 ### Screenshots
@@ -221,6 +222,7 @@ mark usage ｜ [简体中文](TRADEMARKS.md).
 
 - Contribution workflow and code conventions: [CONTRIBUTING.en.md](CONTRIBUTING.en.md) ｜ [简体中文](CONTRIBUTING.md)
 - Vulnerability reports (please do not open a public issue): [SECURITY.en.md](SECURITY.en.md) ｜ [简体中文](SECURITY.md)
+- Code of conduct: [CODE_OF_CONDUCT.en.md](CODE_OF_CONDUCT.en.md) ｜ [简体中文](CODE_OF_CONDUCT.md)
 
 ### Contact
 

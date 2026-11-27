@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 商业版 / 企业部署咨询
-    url: mailto:jinxxin@live.com
-    about: 功能安全深度、标准内容库、家族协同等商业能力，请邮件联系。
+  - name: "商业版 / 企业部署咨询（Commercial / Enterprise）"
+    url: "mailto:jinxxin@live.com"
+    about: "功能安全深度、标准内容库、跨产品协同等商业能力，请邮件联系。Commercial capabilities (advanced functional safety, standards library, cross-product collaboration): email us."
+  - name: "安全问题私密报告（Security report）"
+    url: "https://github.com/jinxxin/tuolex-auto/security/advisories/new"
+    about: "安全漏洞请走私密通道，不要公开提 issue。Report vulnerabilities privately, never in a public issue."

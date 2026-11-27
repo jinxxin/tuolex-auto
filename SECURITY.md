@@ -4,9 +4,12 @@
 
 ## 报告漏洞
 
-请**不要**通过公开 issue 报告安全漏洞。
+请**不要**通过公开 issue 报告安全漏洞。两种私密方式任选：
 
-邮件：`jinxxin@live.com`，标题以 `[SECURITY]` 开头，并尽量包含：
+1. **GitHub 私密报告（推荐）**：仓库 → Security → Advisories → Report a vulnerability（仅维护者可见）
+2. **邮件**：`jinxxin@live.com`，标题以 `[SECURITY]` 开头
+
+无论使用哪种方式，请尽量包含：
 
 - 受影响的版本 / commit
 - 复现步骤或 PoC

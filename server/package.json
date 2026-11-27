@@ -2,10 +2,18 @@
   "name": "tuolex-auto-server",
   "version": "1.0.0",
   "private": true,
+  "description": "tuoleX auto server — Express + PostgreSQL API for the community edition",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinxxin/tuolex-auto.git",
+    "directory": "server"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "node node_modules/typescript/bin/tsc -p tsconfig.json",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

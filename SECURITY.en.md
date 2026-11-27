@@ -4,9 +4,12 @@
 
 ## Reporting a vulnerability
 
-Please **do not** report security vulnerabilities through public issues.
+Please **do not** report security vulnerabilities through public issues. Choose either private channel:
 
-Email: `jinxxin@live.com`, with a subject starting with `[SECURITY]`, and include as much of the following as possible:
+1. **GitHub private advisory (recommended)**: repository → Security → Advisories → Report a vulnerability (visible to maintainers only)
+2. **Email**: `jinxxin@live.com`, with a subject starting with `[SECURITY]`
+
+Whichever you use, please include as much of the following as possible:
 
 - Affected version / commit
 - Reproduction steps or a PoC
