@@ -1,0 +1,47 @@
+# tuoleX auto · 社区版（自托管）
+# 起：docker compose up -d  → http://localhost:8087
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: tuolex
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tuolex}
+      POSTGRES_DB: tuolex_auto
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tuolex -d tuolex_auto"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: tuolex
+      PGPASSWORD: ${POSTGRES_PASSWORD:-tuolex}
+      PGDATABASE: tuolex_auto
+      JWT_SECRET: ${JWT_SECRET:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8087}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.web.community
+    ports:
+      - "${WEB_PORT:-8087}:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  pgdata:

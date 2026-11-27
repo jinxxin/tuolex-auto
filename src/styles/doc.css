@@ -1,0 +1,225 @@
+/* ============ 在线文档 Word 观感样式 ============ */
+
+/* 工作区背景 */
+.doc-workspace {
+  background: #e9edf2;
+  min-height: calc(100vh - 120px);
+  padding: 24px 16px 48px;
+}
+
+/* A4 页面容器 */
+.doc-page {
+  background: #fff;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 72px;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.12);
+  border-radius: 4px;
+  min-height: 500px;
+}
+
+/* 导出根节点（PDF 渲染）：铺满 A4 宽度、去装饰 */
+.export-root .doc-page {
+  max-width: 100%;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* TipTap 编辑器内容 */
+.doc-editor {
+  outline: none;
+  min-height: 200px;
+}
+
+.doc-editor h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #1b6ca8;
+  color: #0b2545;
+}
+
+.doc-editor h2 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+  color: #13315c;
+}
+
+.doc-editor h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 16px 0 8px;
+  color: #1b6ca8;
+}
+
+.doc-editor p {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 6px 0;
+  color: #333;
+}
+
+.doc-editor ul,
+.doc-editor ol {
+  padding-left: 24px;
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.doc-editor blockquote {
+  border-left: 3px solid #1b6ca8;
+  margin: 8px 0;
+  padding: 4px 12px;
+  background: #f4f8fb;
+  color: #555;
+}
+
+.doc-editor hr {
+  border: none;
+  border-top: 1px solid #d9d9d9;
+  margin: 16px 0;
+}
+
+.doc-editor code {
+  background: #f5f5f5;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #c7254e;
+}
+
+.doc-editor pre {
+  background: #0b2545;
+  color: #e6f1fa;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+
+.doc-editor strong { font-weight: 700; }
+.doc-editor em { font-style: italic; }
+.doc-editor s { text-decoration: line-through; }
+
+/* 空文档占位提示 */
+.doc-editor p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #adb5bd;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* 条目引用段落（Word 视图内） */
+.doc-entry {
+  border: 1px solid #e3e9f0;
+  border-left: 3px solid #1b6ca8;
+  border-radius: 4px;
+  padding: 8px 14px;
+  margin: 8px 0;
+  background: #f8fafc;
+}
+
+.doc-entry .entry-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #0b2545;
+  font-size: 13.5px;
+}
+
+.doc-entry .entry-desc {
+  font-size: 13.5px;
+  color: #444;
+  margin-top: 4px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.doc-entry .entry-meta {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 4px;
+}
+
+/* 目录 */
+.doc-toc-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  color: #1b6ca8;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px dashed #e5e5e5;
+}
+
+.doc-toc-item:hover { color: #fa8c16; }
+
+/* ============ 版本对比 diff 高亮 ============ */
+.diff-view { font-size: 13px; line-height: 1.65; font-family: -apple-system, 'PingFang SC', sans-serif; }
+.diff-unchanged { color: #595959; }
+.diff-added { background: #f6ffed; color: #237804; }
+.diff-removed { background: #fff1f0; color: #a8071a; text-decoration: line-through; }
+
+/* ============ 移动端适配（≤860px） ============ */
+@media (max-width: 860px) {
+  /* antd 表格：以 .ant-table-content 为滚动容器（不动 wrapper，保证 fixed 列 sticky 生效）；
+     有 scroll.x 的表格由 antd 原生控制（table 列宽内联，content 横滚，fixed 列钉右缘）；
+     无 scroll.x 的表格由 content overflow 兜底，列自然压缩换行不撑破页面 */
+  .ant-table-content { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* 文档页边距收紧 */
+  .doc-page { padding: 32px 20px; }
+  /* 卡片操作区换行，避免按钮挤出屏幕 */
+  .ant-card-extra { max-width: 100%; }
+  .ant-card-extra .ant-space { flex-wrap: wrap; row-gap: 6px; }
+  /* 弹窗适配窄屏 */
+  .ant-modal { max-width: calc(100vw - 24px); }
+  .ant-modal .ant-modal-body { max-height: 70vh; overflow-y: auto; }
+  /* 统计卡片/描述列表不溢出 */
+  .ant-statistic { white-space: normal; }
+  .ant-descriptions-view { overflow-x: auto; }
+}
+
+/* 内容区工具条 Space 允许换行（移动端） */
+@media (max-width: 860px) {
+  .ant-layout-content .ant-space-horizontal { flex-wrap: wrap; row-gap: 6px; }
+}
+
+/* 项目详情 Tab 栏：窄屏允许横向滚动，不撑破页面 */
+@media (max-width: 860px) {
+  .ant-tabs-nav { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  .ant-tabs-nav .ant-tabs-nav-wrap { white-space: nowrap; }
+}
+
+/* 需求树容器：窄屏横向滚动兜底（节点操作按钮多） */
+@media (max-width: 860px) {
+  .ant-tree { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* 项目详情 Tab 内容容器：窄屏截断横向溢出（需求树节点操作按钮多会撑破） */
+@media (max-width: 860px) {
+  .ant-tabs-content, .ant-tabs-body, .ant-tabs-body-holder { overflow-x: hidden; }
+}
+
+/* EasyFuSa 帮助指南（fs-guide）markdown 基础样式 */
+.fs-guide h1 { font-size: 22px; margin: 18px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+.fs-guide h2 { font-size: 17px; margin: 20px 0 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px; }
+.fs-guide h3 { font-size: 15px; margin: 14px 0 6px; }
+.fs-guide p { margin: 6px 0; }
+.fs-guide ul, .fs-guide ol { padding-left: 22px; margin: 6px 0; }
+.fs-guide li { margin: 2px 0; }
+.fs-guide table { border-collapse: collapse; margin: 10px 0; width: 100%; font-size: 13px; }
+.fs-guide th, .fs-guide td { border: 1px solid #e5e5e5; padding: 6px 10px; text-align: left; }
+.fs-guide th { background: #f7f9fb; font-weight: 600; }
+.fs-guide tr:nth-child(even) td { background: #fafcfe; }
+.fs-guide code { background: #f5f5f5; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.fs-guide pre { background: #f8f8f8; border: 1px solid #eee; border-radius: 6px; padding: 10px; overflow: auto; }
+.fs-guide pre code { background: transparent; }
+.fs-guide blockquote { border-left: 3px solid #1b6ca8; margin: 8px 0; padding: 4px 12px; color: rgba(0,0,0,0.65); background: #f7fafd; }

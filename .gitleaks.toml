@@ -1,0 +1,16 @@
+# gitleaks 配置：在默认规则之上，放行示例与文档中的占位值。
+# 用法：gitleaks detect --no-git --config .gitleaks.toml -v
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "示例与文档中的占位值"
+paths = [
+  '''\.env\.example$''',
+  '''^docs/''',
+  '''^README.*\.md$''',
+]
+regexes = [
+  '''change-me-in-production''',
+  '''tuolex''',
+]

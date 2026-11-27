@@ -1,0 +1,23 @@
+name: Feature request
+description: 提出一个功能建议
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        社区版按 best-effort 维护，不承诺路线图与排期。商业定制请邮件联系。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 描述场景与痛点，而不是直接给方案。
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你的想法
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你考虑过的替代方案
