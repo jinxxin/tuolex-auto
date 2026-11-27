@@ -14,7 +14,7 @@ import { clientIp, rateLimit } from '../guard';
 const router = Router();
 
 // 平台标识（由环境变量注入）
-const PLATFORM = process.env.FEEDBACK_PLATFORM ?? 'easyauto';
+const PLATFORM = process.env.FEEDBACK_PLATFORM ?? 'tuolex';
 
 // ---------- 公开：图形验证码（提交公开反馈/评论前获取） ----------
 router.get('/captcha', (_req, res) => {

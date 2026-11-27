@@ -1,6 +1,6 @@
 // EN 模式中文残留巡检（EasyAuto）
 // 用法：node scripts/en-scan.mjs [origin]   （默认 http://127.0.0.1:8082）
-// 前置：easyauto-web 已启动；登录用 admin/123456（可通过环境变量 EASY_SCAN_USER/PASS 覆盖）
+// 前置：tuolex-auto-web 已启动；登录用 admin/123456（可通过环境变量 EASY_SCAN_USER/PASS 覆盖）
 // 输出：每路由 UI 残留（应修）与数据/内容类中文（按边界允许）分类
 // 注：启发式分类，数据类中可能混入少量 UI 词，结果需人工复核；语言切换按钮「中」与用户名等按数据列出属正常
 // 依赖：本机 Chrome（headless CDP）
@@ -39,7 +39,7 @@ if (!token) { console.error('登录失败：无 token'); process.exit(1); }
 
 // 整页引导（无 hash 根路径 → 注入 → reload 让 i18n 以 en 初始化）
 await send('Page.navigate', { url: origin + '/' }); await sleep(2500);
-await send('Runtime.evaluate', { expression: `localStorage.setItem('easyauto_token', '${token}'); localStorage.setItem('easyauto_lang', 'en')` });
+await send('Runtime.evaluate', { expression: `localStorage.setItem('tuolex_token', '${token}'); localStorage.setItem('tuolex_lang', 'en')` });
 await send('Page.reload', { ignoreCache: true }); await sleep(5000);
 
 const EVAL = `(() => {

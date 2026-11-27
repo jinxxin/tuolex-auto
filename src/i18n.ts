@@ -7,7 +7,7 @@ import zh from './locales/zh.json';
 import en from './locales/en.json';
 import { BRAND_VARS } from './brand';
 
-export const LANG_KEY = 'easyauto_lang';
+export const LANG_KEY = 'tuolex_lang';
 
 function detectLng(): 'zh' | 'en' {
   try {

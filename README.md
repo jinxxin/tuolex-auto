@@ -4,7 +4,6 @@
 **简体中文** ｜ [English](#english)
 
 > 汽车软件过程与证据管理工具，自托管、可审计、无遥测。
-> 内部代号 `easyauto`；对外名称 `tuoleX auto`（写作 `tuoleauto`）。
 
 ## 这是什么
 
@@ -116,7 +115,6 @@ Apache-2.0（见 `LICENSE`）。标准文本不随本仓库分发；文中出现
 [简体中文](#zh) ｜ **English**
 
 > Automotive software process and evidence management — self-hosted, auditable, no telemetry.
-> Internal codename `easyauto`; public name `tuoleX auto` (written `tuoleauto`).
 
 ### What this is
 

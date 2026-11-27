@@ -32,7 +32,7 @@ export async function writeAudit(entry: AuditEntry, ts = Date.now(), client?: Po
   const ownsClient = !client;
   try {
     if (ownsClient) await q.query('BEGIN');
-    await q.query('SELECT pg_advisory_xact_lock(hashtext($1))', ['easyauto-audit-chain']);
+    await q.query('SELECT pg_advisory_xact_lock(hashtext($1))', ['tuolex-audit-chain']);
     const { rows } = await q.query('SELECT hash FROM audit_logs ORDER BY id DESC LIMIT 1');
     const prevHash = rows[0]?.hash ?? 'GENESIS';
     // 关键：entityId 统一字符串化（列类型 TEXT），否则写入时 number 与读回时的 string 序列化不一致，哈希链断裂

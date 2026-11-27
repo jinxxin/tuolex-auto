@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { apiErrorMsg } from './apiErrors';
 import { isEn } from '../i18n';
 
-export const TOKEN_KEY = 'easyauto_token';
+export const TOKEN_KEY = 'tuolex_token';
 
 export function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);

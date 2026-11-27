@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 // ============ 全局当前项目（跨页面共享 + 本地记忆）============
 // 顶栏切换一次，所有带项目上下文的页面自动跟随，并记住上次选择。
-const KEY = 'easyauto_current_project';
+const KEY = 'tuolex_current_project';
 
 function load(): number | null {
   try {
