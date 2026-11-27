@@ -1,0 +1,42 @@
+name: "Bug report (English)"
+description: Report a reproducible problem
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search existing issues first. Do **not** report security vulnerabilities in a public issue — see SECURITY.en.md.
+  - type: input
+    id: version
+    attributes:
+      label: Version / image
+      description: Release tag, commit sha, or image tag
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you see? What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. docker compose up -d
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Output of `docker compose logs api` (redact secrets)
+      render: shell
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Docker/Compose version, architecture

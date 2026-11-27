@@ -28,6 +28,7 @@ services:
       PGDATABASE: tuolex_auto
       JWT_SECRET: ${JWT_SECRET:-}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8087}
+      SEED_DEMO: ${SEED_DEMO:-true}
     depends_on:
       db:
         condition: service_healthy

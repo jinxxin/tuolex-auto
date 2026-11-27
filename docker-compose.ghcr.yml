@@ -1,0 +1,45 @@
+# tuoleX auto · 社区版（预构建镜像，不在本地构建）
+# 起：docker compose -f docker-compose.ghcr.yml up -d  → http://localhost:8087
+# 指定版本：TOULEX_VERSION=0.1.0 docker compose -f docker-compose.ghcr.yml up -d
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: tuolex
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tuolex}
+      POSTGRES_DB: tuolex_auto
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tuolex -d tuolex_auto"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  api:
+    image: ghcr.io/${GHCR_OWNER:-jinxxin}/tuolex-auto-api:${TOULEX_VERSION:-latest}
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: tuolex
+      PGPASSWORD: ${POSTGRES_PASSWORD:-tuolex}
+      PGDATABASE: tuolex_auto
+      JWT_SECRET: ${JWT_SECRET:-}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8087}
+      SEED_DEMO: ${SEED_DEMO:-true}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  web:
+    image: ghcr.io/${GHCR_OWNER:-jinxxin}/tuolex-auto-web:${TOULEX_VERSION:-latest}
+    ports:
+      - "${WEB_PORT:-8087}:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  pgdata:

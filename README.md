@@ -4,6 +4,8 @@
 **简体中文** ｜ [English](#english)
 
 [![ci](https://github.com/jinxxin/tuolex-auto/actions/workflows/ci.yml/badge.svg)](https://github.com/jinxxin/tuolex-auto/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/jinxxin/tuolex-auto?display_name=tag)](https://github.com/jinxxin/tuolex-auto/releases)
+[![license](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 > 汽车软件过程与证据管理工具，自托管、可审计、无遥测。
 
@@ -40,6 +42,13 @@ docker compose up -d
 
 ```bash
 WEB_PORT=9000 JWT_SECRET='换成一个长随机串' docker compose up -d
+```
+
+### 用预构建镜像（不本地构建）
+
+```bash
+docker compose -f docker-compose.ghcr.yml up -d
+# 固定版本：TOULEX_VERSION=0.1.0 docker compose -f docker-compose.ghcr.yml up -d
 ```
 
 首次启动后，系统会让你创建**本机管理员**（没有出厂默认密码）。账号只存在于你自己的数据库里。
@@ -156,6 +165,13 @@ Default port is 8087; override it with environment variables:
 
 ```bash
 WEB_PORT=9000 JWT_SECRET='a long random string' docker compose up -d
+```
+
+#### Prebuilt images (no local build)
+
+```bash
+docker compose -f docker-compose.ghcr.yml up -d
+# pin a version: TOULEX_VERSION=0.1.0 docker compose -f docker-compose.ghcr.yml up -d
 ```
 
 On first launch the system asks you to create a **local administrator** (there is no factory default
