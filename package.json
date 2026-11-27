@@ -55,7 +55,7 @@
     "occt-import-js": "^0.0.23",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-i18next": "^17.0.13",
+    "react-i18next": "^18.0.3",
     "react-router-dom": "^7.18.2",
     "three": "^0.185.1",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
