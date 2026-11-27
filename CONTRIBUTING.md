@@ -37,6 +37,10 @@ npm run build
 
 改了服务端或 Dockerfile 时，再跑一次 `docker compose build`。
 
+更新依赖后请确认 `package-lock.json` 的 `resolved` 全部指向 `https://registry.npmjs.org/`——
+国内镜像生成的地址在 GitHub 构建机上不可达，会让 CI 在 `npm ci` 阶段失败。
+建议用：`npm_config_registry=https://registry.npmjs.org npm install`（CI 有同名校验步骤）。
+
 ## 代码约定
 
 - TypeScript 严格模式；不用 `any` 逃逸（确有需要请注释原因）。

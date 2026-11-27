@@ -37,6 +37,11 @@ npm run build
 
 If you changed the server or a Dockerfile, also run `docker compose build` once.
 
+After updating dependencies, make sure every `resolved` URL in `package-lock.json` points to
+`https://registry.npmjs.org/` — URLs from China mirrors are unreachable on GitHub runners and
+break CI at `npm ci`. Use: `npm_config_registry=https://registry.npmjs.org npm install`
+(CI has a guard step for this).
+
 ## Code conventions
 
 - TypeScript strict mode; do not escape with `any` (if truly necessary, comment why).

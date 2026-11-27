@@ -26,6 +26,16 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Lockfile registry guard
+        run: |
+          bad=$(grep -E '"resolved": "https?://' package-lock.json server/package-lock.json | grep -v 'https://registry.npmjs.org/' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::lockfile contains non-npmjs registry URLs (CI runners cannot reach China mirrors):"
+            echo "$bad" | head -5
+            echo "Fix: npm_config_registry=https://registry.npmjs.org npm install"
+            exit 1
+          fi
+
       - name: Install
         run: npm ci --no-audit --no-fund
 
