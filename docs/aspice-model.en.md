@@ -1,6 +1,6 @@
 # A-SPICE Process Model (How This Project Models It)
 
-**简体中文** ｜ [English](aspice-model.en.md)
+[简体中文](aspice-model.md) ｜ **English**
 
 > Note: this document describes **how we model the process structure**. It is not the text of the standard, and it does not constitute an interpretation of the standard.
 > Please purchase the official standard from VDA QMC; clause interpretation follows the published text.
