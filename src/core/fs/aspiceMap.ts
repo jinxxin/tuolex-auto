@@ -1,4 +1,4 @@
-// ============ EasyFuSa ↔ A-SPICE 映射（层级承接规则） ============
+// ============ tuoleX FS ↔ A-SPICE 映射（层级承接规则） ============
 // 分析依据（2026-09-09）：
 //  - ISO 26262 概念层（SG/FSC）与系统/硬件/软件层（TSC→SR）逐级细化；
 //  - A-SPICE 的 req_items（V 层 user_req/sys_req/sys_arch/hw_req/sw_req/sw_arch/dd/unit/task）承接系统/软件工程需求；

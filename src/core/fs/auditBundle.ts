@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import type { FsHazard, FsSafetyReq, FsFmeda, FsFta, FsDfa, FsSafetyCase, FsConfirmMeasure, FsPlanItem, AuditLog } from '../types';
 import { ASIL_TAG_TEXT } from './data';
 
-// ============ EasyFuSa 审计包导出（单 xlsx 多 sheet：全部 FS 工作产品 + 审计轨迹） ============
+// ============ tuoleX FS 审计包导出（单 xlsx 多 sheet：全部 FS 工作产品 + 审计轨迹） ============
 export interface BundleCtx {
   projectId: number;
   projectName: string;
@@ -79,5 +79,5 @@ export async function exportFsAuditBundle(ctx: BundleCtx): Promise<void> {
   audit.filter((l) => fsTables.includes(l.entityType)).sort((a, b) => b.ts - a.ts).slice(0, 200).forEach((l) => auditRows.push([dt(l.ts), l.username, l.action, l.entityType, String(l.entityId), l.summary]));
   sh('审计轨迹', aoa(auditRows, [18, 10, 10, 18, 10, 60]));
 
-  XLSX.writeFile(wb, `EasyFuSa_审计包_${projectName}_${dayjs().format('YYYYMMDD_HHmm')}.xlsx`);
+  XLSX.writeFile(wb, `tuoleX-FS_audit-bundle_${projectName}_${dayjs().format('YYYYMMDD_HHmm')}.xlsx`);
 }

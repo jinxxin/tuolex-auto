@@ -1,5 +1,5 @@
-// ============ EasyFuSa 静态领域数据（UI 只读对照视图/表单选项/种子模板） ============
-// 数值来源与 asil.ts 同源（docs/EasyFuSa-领域知识笔记.md）
+// ============ tuoleX FS 静态领域数据（UI 只读对照视图/表单选项/种子模板） ============
+// 数值来源与 asil.ts 同源（内部领域笔记）
 
 import type {
   FsSeverity, FsExposure, FsControllability, FsAsil, FsIndependence,

@@ -1,5 +1,5 @@
 // ============ ASIL 引擎单测（node:test + tsx）============
-// 判定表值依据：docs/EasyFuSa-领域知识笔记.md §2.2（ISO 26262-3:2018 Table 4）
+// 判定表值依据：内部领域笔记 §2.2（ISO 26262-3:2018 Table 4）
 // 运行：npm run test:fs
 
 import { test } from 'node:test';

@@ -8,9 +8,9 @@ import { writeAudit } from '../audit';
 import { ASIL_TAG_TEXT } from './data';
 import type { FsHazard, FsSafetyReq, FsFmeda, FsFta, FsDfa, FsSafetyCase, FsConfirmMeasure, FsPlanItem } from '../types';
 
-// ============ EasyFuSa 正式评估报告导出（二期 M3）============
+// ============ tuoleX FS 正式评估报告导出（二期 M3）============
 // 四类报告：HARA / FSC-TSC / FMEDA / Safety Case（docx）
-// 结构对齐评估机构口径：封面 + 文档控制表 + 修订记录 + 参与者签名表 + 引用文件 + 正文 + 证据索引（详见 docs/EasyFuSa-评估报告格式样张调研.md）
+// 结构对齐评估机构口径：封面 + 文档控制表 + 修订记录 + 参与者签名表 + 引用文件 + 正文 + 证据索引（详见 内部领域笔记）
 // 导出即冻结：数据快照 SHA-256 存 fs_reports + EXPORT 审计（哈希链）
 
 export type FsReportKind = 'hara' | 'fsc-tsc' | 'fmeda' | 'safety-case';
@@ -29,7 +29,7 @@ export interface FsReportCtx {
   author: { id: number; username: string; name: string };
 }
 
-const TPL_VERSION = 'TPL-EasyFuSa-1.0';
+const TPL_VERSION = 'TPL-tuolex-fs-1.0';
 const REPORT_META: Record<FsReportKind, { code: string; titleZh: string; titleEn: string; refs: string[] }> = {
   hara: {
     code: 'HARA', titleZh: '危害分析与风险评估报告', titleEn: 'Hazard Analysis and Risk Assessment Report',
@@ -243,7 +243,7 @@ export async function exportFsReport(kind: FsReportKind, ctx: FsReportCtx): Prom
   const snapshotHash = await sha256(JSON.stringify(snapshot));
 
   const doc = new Document({
-    creator: 'EasyFuSa (EasyAuto)',
+    creator: 'tuoleX auto',
     title: `${meta.titleZh} · ${ctx.projectName}`,
     sections: [{
       children: [

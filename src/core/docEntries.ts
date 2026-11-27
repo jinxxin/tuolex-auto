@@ -1,4 +1,4 @@
-// ============ 在线文档：条目化引用 注册表（家族通用原则）============
+// ============ 在线文档：条目化引用 注册表（通用原则）============
 // 原则：在线文档中的条目内容 = 对系统条目的「引用 + 快照」。
 //   · 引用建立时冻结快照（snapshot = 引用时刻的条目内容 + 版本）
 //   · 条目变化不自动进文档，给「有更新」提示：更新到最新 / 指定版本 / 保持
@@ -7,7 +7,7 @@
 
 import { db } from './db';
 
-// 本平台在线文档可引用的条目类型（子集；家族各平台按各自实体登记）
+// 本平台在线文档可引用的条目类型（子集；各应用按各自实体登记）
 export type DocEntryType = 'req' | 'tc' | 'fmea' | 'vdoc';
 
 export interface EntrySnap {
@@ -140,7 +140,7 @@ export async function entryVersionsOf(type: DocEntryType, id: number): Promise<{
     .map((v) => ({ version: v.version, changedAt: v.changedAt, changedBy: v.changedBy, note: v.note })).sort((a, b) => b.version - a.version);
 }
 
-// ---- 条目详情追溯（家族 §9：解析对方编号/名称；兼容语义键与旧短码）----
+// ---- 条目详情追溯（设计规范 §9：解析对方编号/名称；兼容语义键与旧短码）----
 export const ENTRY_TRACE: Record<DocEntryType, { traceKey: string; route: string }> = {
   req: { traceKey: "design_input", route: "/workitems" },
   tc: { traceKey: "verification", route: "/workitems" },

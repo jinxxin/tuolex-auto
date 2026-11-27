@@ -80,13 +80,13 @@ export interface Project {
   status: ProjectStatus;
   vendor: string;
   description: string;
-  // 兼容旧字段（EasyCSV 迁移）
+  // 兼容旧字段（历史迁移）
   gampClass?: 1 | 3 | 4 | 5;
   phases?: Record<string, number>;
   checklist?: Record<string, boolean>;
   // A-SPICE：标准版本（3.1 为主，4.0 可切换）
   stdVersion: AspiceStdVersion;
-  // EasyFuSa：功能安全域开关（fsEnabled 项目隐藏 ASPICE 过程区，专项客户视图）
+  // tuoleX FS：功能安全域开关（fsEnabled 项目隐藏 ASPICE 过程区，专项客户视图）
   fsEnabled?: boolean;
   fsVersion?: string;     // 如 '26262:2018'（预留多版本）
   fsSysType?: string | null; // 产品域（行业包 id，如 steering/brake/…；HARA 模板库预选）
@@ -344,7 +344,7 @@ export interface Capa extends ApprovalFields {
   updatedAt: number;
 }
 
-// EBOM（STEP 装配树，EasyAuto）
+// EBOM（STEP 装配树，tuoleX auto）
 export interface EbomNode {
   id?: string;          // 节点唯一标识（文档内，如 n1/n2…）
   name: string;
@@ -385,7 +385,7 @@ export interface FmeaItem {
   status: 'open' | 'closed';
   updatedAt?: number;
   linkedTcIds?: number[]; // 关联测试用例（风险控制措施 → 验证覆盖）
-  asil?: FsAsil;        // 可选 ASIL 标注（EasyFuSa 安全分析升级；QM/A/B/C/D）
+  asil?: FsAsil;        // 可选 ASIL 标注（tuoleX FS 安全分析升级；QM/A/B/C/D）
   version?: number;     // 条目版本
 }
 
@@ -435,7 +435,7 @@ export interface TestCase {
   updatedAt: number;
 }
 
-// 可追溯实体类型（含 EasyFuSa 功能安全实体，M1 起逐步接入追溯/文档引用）
+// 可追溯实体类型（含 tuoleX FS 功能安全实体，M1 起逐步接入追溯/文档引用）
 export type LinkEntityType = 'req' | 'tc' | 'fmea' | 'vdoc' | 'wp'
   | 'fs_hazard' | 'fs_req' | 'fs_fmeda' | 'fs_fta' | 'fs_dfa' | 'fs_case' | 'fs_confirm' | 'fs_plan';
 
@@ -526,8 +526,8 @@ export interface DocRecord {
   updatedAt: number;
 }
 
-// ============ EasyFuSa 功能安全域（ISO 26262:2018）============
-// 领域依据：docs/EasyFuSa-领域知识笔记.md（ASIL 判定表 §2.2 / 分解表 §4.2 / 硬件度量 §5 / GSN §6.4）
+// ============ tuoleX FS 功能安全域（ISO 26262:2018）============
+// 领域依据：内部领域笔记（ASIL 判定表 §2.2 / 分解表 §4.2 / 硬件度量 §5 / GSN §6.4）
 // 命名：ISO 术语优先英文缩写（ASIL/HARA/SG/FSC/TSC…），中文展示为辅
 
 export type FsAsil = 'QM' | 'A' | 'B' | 'C' | 'D';
@@ -759,7 +759,7 @@ export interface FsPlanItem {
   updatedAt: number;
 }
 
-// ============ EasyFuSa 正式评估报告（二期 M3，2026-09-19）============
+// ============ tuoleX FS 正式评估报告（二期 M3，2026-09-19）============
 export type FsReportKind = 'hara' | 'fsc-tsc' | 'fmeda' | 'safety-case';
 export interface FsReport {
   id?: number;
@@ -774,7 +774,7 @@ export interface FsReport {
   createdAt: number;
 }
 
-// ============ EasyFuSa 工具资质（ISO 26262-8:2018 Cl.11 · TCL）============
+// ============ tuoleX FS 工具资质（ISO 26262-8:2018 Cl.11 · TCL）============
 export type TqTi = 'TI1' | 'TI2';                    // Tool Impact
   export type TqTd = 'TD1' | 'TD2' | 'TD3';          // Tool error Detection
 export type TqTcl = 'TCL1' | 'TCL2' | 'TCL3';        // Tool Confidence Level
@@ -828,7 +828,7 @@ export interface TqMeasure {
   updatedAt: number;
 }
 
-// ============ 项目管理 · 计划中枢（EasyAuto 领域：软件过程 A-SPICE）============
+// ============ 项目管理 · 计划中枢（tuoleX auto 领域：软件过程 A-SPICE）============
 export type PhaseCode = 'SYS' | 'REQ' | 'ARC' | 'UNIT' | 'INT' | 'QUAL';
 export type PlanTaskStatus = 'todo' | 'doing' | 'review' | 'done';
 export interface PlanRef { type: string; id: number; code?: string }

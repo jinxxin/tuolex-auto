@@ -21,7 +21,7 @@ import type { FsAsil, AuditLog } from '../../core/types';
 
 const { Title, Text } = Typography;
 
-// M5：EasyFuSa 域驾驶舱（各模块状态聚合 + 一键审计包导出）
+// M5：tuoleX FS 域驾驶舱（各模块状态聚合 + 一键审计包导出）
 export default function OverviewPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -79,7 +79,7 @@ export default function OverviewPage() {
     await exportFsAuditBundle({
       projectId: pid!, projectName: pname, hazards, reqs, fmedas, ftas, dfas, cases, confirms, plans, audit,
     });
-    await writeAudit({ userId: user?.id ?? 0, username: user?.username ?? 'unknown', action: 'EXPORT', entityType: 'fs_safety_cases', entityId: pid ?? 0, summary: `导出 EasyFuSa 审计包（${pname}）`, before: null, after: null });
+    await writeAudit({ userId: user?.id ?? 0, username: user?.username ?? 'unknown', action: 'EXPORT', entityType: 'fs_safety_cases', entityId: pid ?? 0, summary: `导出 tuoleX FS 审计包（${pname}）`, before: null, after: null });
     msg.success(t('chainPage.exportDone') || '审计包已导出');
   };
 
@@ -105,7 +105,7 @@ export default function OverviewPage() {
           <Col flex="auto">
             <Space align="center">
               <ThunderboltOutlined style={{ fontSize: 22, color: '#1b6ca8' }} />
-              <Title level={4} style={{ margin: 0 }}>EasyFuSa · {t('fs.brand')}</Title>
+              <Title level={4} style={{ margin: 0 }}>tuoleX FS · {t('fs.brand')}</Title>
               <Tag color="purple">ISO 26262:2018</Tag>
               <Tag color="blue">{pname}</Tag>
             </Space>

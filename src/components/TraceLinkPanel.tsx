@@ -24,7 +24,7 @@ export const ENTITY_META: Record<LinkEntityType, { labelKey: string; color: stri
   fmea: { labelKey: 'traceLink.entFmea', color: 'red', icon: <WarningOutlined /> },
   vdoc: { labelKey: 'traceLink.entVdoc', color: 'purple', icon: <FileOutlined /> },
   wp: { labelKey: 'traceLink.entWp', color: 'cyan', icon: <FileTextOutlined /> },
-  // EasyFuSa（M1 追溯接入时细分各实体 label/icon）
+  // tuoleX FS（M1 追溯接入时细分各实体 label/icon）
   fs_hazard: FS_ENT, fs_req: FS_ENT, fs_fmeda: FS_ENT, fs_fta: FS_ENT,
   fs_dfa: FS_ENT, fs_case: FS_ENT, fs_confirm: FS_ENT, fs_plan: FS_ENT,
 };
@@ -69,7 +69,7 @@ export default function TraceLinkPanel({ projectId, entityType, entityId, entity
   const tcs = useLiveQuery(() => db.test_cases.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];
   const fmeas = useLiveQuery(() => db.fmea_items.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];
   const vdocs = useLiveQuery(() => db.vdocs.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];
-  // EasyFuSa 实体（fs 需求/危害/分析/案例——双向追溯显示与建链目标）
+  // tuoleX FS 实体（fs 需求/危害/分析/案例——双向追溯显示与建链目标）
   const fsReqs = useLiveQuery(() => db.fs_safety_reqs.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];
   const fsHazards = useLiveQuery(() => db.fs_hazards.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];
   const fsFmedas = useLiveQuery(() => db.fs_fmeda.where('projectId').equals(projectId).toArray(), [projectId]) ?? [];

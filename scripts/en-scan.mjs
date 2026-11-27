@@ -1,4 +1,4 @@
-// EN 模式中文残留巡检（EasyAuto）
+// EN 模式中文残留巡检（tuoleX auto）
 // 用法：node scripts/en-scan.mjs [origin]   （默认 http://127.0.0.1:8082）
 // 前置：tuolex-auto-web 已启动；登录用 admin/123456（可通过环境变量 EASY_SCAN_USER/PASS 覆盖）
 // 输出：每路由 UI 残留（应修）与数据/内容类中文（按边界允许）分类

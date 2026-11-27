@@ -269,7 +269,7 @@ async function ensureProjectMembers(): Promise<void> {
   }
 }
 
-// ============ 项目管理·计划中枢演示数据（EasyAuto 领域：软件过程 A-SPICE）============
+// ============ 项目管理·计划中枢演示数据（tuoleX auto 领域：软件过程 A-SPICE）============
 async function ensurePlanDemo(): Promise<void> {
   const proj = await pool.query('SELECT id FROM projects ORDER BY id ASC LIMIT 1');
   if (!proj.rows[0]) return;
@@ -326,5 +326,5 @@ async function ensurePlanDemo(): Promise<void> {
     await pool.query('INSERT INTO plan_dependencies ("projectId","fromCode","toCode",type,"lagMs","createdAt","updatedAt") VALUES ($1,$2,$3,$4,0,$5,$5)', [pid, f, t, 'FS', now]);
   }
   await pool.query("INSERT INTO plan_calendars (\"projectId\",name,\"weekendOff\",holidays,\"updatedAt\") VALUES ($1,'默认日历',true,'[]',$2)", [pid, now]);
-  console.log('[seed] EasyAuto 已补计划中枢演示数据（软件过程 A-SPICE）');
+  console.log('[seed] tuoleX auto 已补计划中枢演示数据（软件过程 A-SPICE）');
 }

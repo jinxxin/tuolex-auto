@@ -61,7 +61,7 @@ export default function AppLayout() {
   };
   const chainOk = useLiveQuery(async () => (await verifyChain()).ok, []);
   const pendingSigns = useLiveQuery(() => db.vdocs.where('status').equals('in_review').count(), []);
-  // 全局当前项目（顶栏统一入口；家族 IA 一致）
+  // 全局当前项目（顶栏统一入口；IA 一致）
   const projectId = useProjectStore((s) => s.projectId) ?? undefined;
   const setProjectId = useProjectStore((s) => s.setProjectId);
   const projects = useLiveQuery(() => db.projects.orderBy('id').toArray(), []) ?? [];

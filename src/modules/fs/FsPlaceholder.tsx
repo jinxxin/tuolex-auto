@@ -13,7 +13,7 @@ export interface FsMilestoneState {
   next?: string;           // 下一步（英文保持简短，走 i18n 或原文）
 }
 
-// EasyFuSa 占位页骨架：里程碑状态 + 功能安全项目引导（M1 起逐页替换为真实页面）
+// tuoleX FS 占位页骨架：里程碑状态 + 功能安全项目引导（M1 起逐页替换为真实页面）
 export default function FsPlaceholder({ milestone, done, next, moduleKey }: FsMilestoneState & { moduleKey: string }) {
   const { t } = useTranslation();
   const nav = useNavigate();

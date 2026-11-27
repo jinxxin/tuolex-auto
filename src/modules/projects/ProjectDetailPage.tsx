@@ -30,7 +30,7 @@ const { Text, Paragraph } = Typography;
 const DOC_TYPES = V_PHASES.map((p) => p.docType);
 
 // 项目 Tab 分组（A 方案：14 Tab 分 4 组）
-// 家族 IA：过程/V 模型模块已抽到菜单级「软件过程(A-SPICE)」组，此处移除
+// IA：过程/V 模型模块已抽到菜单级「软件过程(A-SPICE)」组，此处移除
 const TAB_GROUPS = [
   { key: 'quality', label: '质量与合规', children: ['audit2', 'review'] },
   { key: 'config', label: '配置与交付', children: ['config', 'metric', 'docs', 'checklist'] },

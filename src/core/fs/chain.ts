@@ -1,6 +1,6 @@
-// ============ EasyFuSa 安全需求链引擎（纯函数，无 IO） ============
+// ============ tuoleX FS 安全需求链引擎（纯函数，无 IO） ============
 // 层级：SG ← FSC ← TSC ← (HSI | SYSTEM_SR | HW_SR | SW_SR)
-// 规则依据：docs/EasyFuSa-领域知识笔记.md §1.4/§3/§4
+// 规则依据：内部领域笔记 §1.4/§3/§4
 //  - ASIL 沿需求链传播；SG 不可分解；分解后子树不得高于分解等级
 //  - 子需求 ASIL 高于父级 = 提级（异常，SG 为源头最高）
 import type { FsSafetyReq, FsReqKind, FsAsil } from '../types';

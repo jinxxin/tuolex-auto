@@ -9,7 +9,7 @@ import { writeAudit } from './core';
 // 幂等策略：用 vendor 作为版本标记（MARKER）。项目名/内容升级时改 MARKER → 启动自动原地重建（保留项目 id，深链不变）。
 const NAME = '示例 · 某车型制动踏板信号（功能安全）';
 const OLD_NAME = '示例 · 某车型制动踏板支架（功能安全）';
-const MARKER = 'EasyFuSa 演示 · E/E（v2）';
+const MARKER = 'tuoleX FS demo · E/E（v2）';
 const DESC = '演示数据：某车型「制动踏板位置信号」（E/E 系统：位置传感器 → 线束/连接器 → ECU 采样）的 HARA（危害分析与风险评估）与安全需求链（ISO 26262 功能安全全流程）。示例数据，不指向任何真实车型。纯机械结构件归结构/耐久口径，本演示聚焦 26262 管辖的 E/E 信号段。';
 const FS_TABLES = ['fs_hazards', 'fs_safety_reqs', 'fs_fmeda', 'fs_fta', 'fs_dfa', 'fs_safety_cases', 'fs_confirm_measures', 'fs_plan_items', 'fs_reports'];
 

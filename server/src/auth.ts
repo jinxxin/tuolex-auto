@@ -46,7 +46,7 @@ export function viewerReadonly(req: Request, res: Response, next: NextFunction):
   }
   // 自助接口放行（qa D6）：改本人密码 / 界面语言偏好
   const url = String(req.originalUrl || '');
-  // 小Z 问答是只读语义（POST 但不落业务数据）：viewer/试用账号也要能用
+  // 数据问答是只读语义（POST 但不落业务数据）：viewer/试用账号也要能用
   if (url.indexOf('/api/assist/') > -1) { next(); return; }
   if (url.indexOf('/auth/change-password') > -1 || url.indexOf('/auth/lang') > -1) {
     next();

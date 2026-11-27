@@ -45,7 +45,7 @@ export const db = {
   config_items: new TableClient<ConfigItem>('config_items'),
   baselines: new TableClient<Baseline>('baselines'),
   wp_templates: new TableClient<WpTemplate>('wp_templates'),
-  // EasyFuSa 功能安全域
+  // tuoleX FS 功能安全域
   fs_hazards: new TableClient<FsHazard>('fs_hazards'),
   fs_safety_reqs: new TableClient<FsSafetyReq>('fs_safety_reqs'),
   fs_fmeda: new TableClient<FsFmeda>('fs_fmeda'),
@@ -56,7 +56,7 @@ export const db = {
   fs_plan_items: new TableClient<FsPlanItem>('fs_plan_items'),
   fs_reports: new TableClient<FsReport>('fs_reports'),
   fs_case_patterns: new TableClient<FsCasePattern>('fs_case_patterns'),
-  // EasyFuSa 工具资质（Cl.11 TCL）
+  // tuoleX FS 工具资质（Cl.11 TCL）
   tq_tools: new TableClient<TqTool>('tq_tools'),
   tq_assessments: new TableClient<TqAssessment>('tq_assessments'),
   tq_measures: new TableClient<TqMeasure>('tq_measures'),

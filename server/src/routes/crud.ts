@@ -41,10 +41,10 @@ const PROJECT_SCOPE_TABLES: Record<string, string> = {
   change_controls: 'systemId', deviations: 'systemId', capas: 'systemId',
   plan_tasks: 'projectId', plan_milestones: 'projectId', plan_dependencies: 'projectId', plan_baselines: 'projectId', plan_assignments: 'projectId', plan_calendars: 'projectId',
   ebom_docs: 'projectId',
-  // EasyFuSa 功能安全域（全部项目级表）
+  // tuoleX FS 功能安全域（全部项目级表）
   fs_hazards: 'projectId', fs_safety_reqs: 'projectId', fs_fmeda: 'projectId', fs_fta: 'projectId',
   fs_dfa: 'projectId', fs_safety_cases: 'projectId', fs_confirm_measures: 'projectId', fs_plan_items: 'projectId', fs_reports: 'projectId',
-  // EasyFuSa 工具资质
+  // tuoleX FS 工具资质
   tq_tools: 'projectId', tq_assessments: 'projectId', tq_measures: 'projectId',
 };
 
@@ -80,7 +80,7 @@ const LIST_EXCLUDE_COLUMNS: Record<string, string[]> = {
   entry_versions: ['snapshot'],
   doc_versions: ['sections'],
   ebom_docs: ['sourceContent'],
-  // EasyFuSa：fmeda metrics/dfa rows/case nodes 列表均需展示统计，不做投影排除（大 JSONB 后续按列细分优化）
+  // tuoleX FS：fmeda metrics/dfa rows/case nodes 列表均需展示统计，不做投影排除（大 JSONB 后续按列细分优化）
   fs_fta: ['tree'],
 };
 

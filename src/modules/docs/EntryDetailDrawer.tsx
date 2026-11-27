@@ -13,7 +13,7 @@ const REL_LABEL: Record<string, string> = {
   'part-of': '隶属', 'contributes-to': '贡献主机风险', 'has-residual': '残余风险', 'maps-to': '条款映射', 'evidenced-by': '证据落点',
 };
 
-// 条目详情抽屉（家族规范 §9，全局最高优先级）；与 EasyMD 对齐：类型/编号/标题/版本/摘要/字段 + 追溯关系（解析编号名称）+ 在系统中打开
+// 条目详情抽屉（全局最高优先级）；与设计规范对齐：类型/编号/标题/版本/摘要/字段 + 追溯关系（解析编号名称）+ 在系统中打开
 export default function EntryDetailDrawer({ snap, open, onClose }: { snap: EntrySnap; open: boolean; onClose: () => void }) {
   const { t } = useTranslation();
   const nav = useNavigate();

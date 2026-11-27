@@ -1916,14 +1916,14 @@
     "layerItem": "条目"
   },
   "fs": {
-    "brand": "EasyFuSa 功能安全域",
+    "brand": "tuoleX 功能安全域",
     "brandEn": "ISO 26262:2018",
     "notEnabled": "当前项目未启用功能安全域",
     "notEnabledDesc": "在项目设置中启用「功能安全（ISO 26262）」后，即可使用 HARA / 安全需求链 / 安全分析 / Safety Case 等能力。",
     "goEnable": "去项目启用",
     "selectProject": "选择功能安全项目",
     "noProject": "尚未有功能安全项目——请先创建或启用一个项目",
-    "building": "EasyFuSa 模块开发中（里程碑 {{ms}}）",
+    "building": "功能安全模块开发中（里程碑 {{ms}}）",
     "msDone": "已完成：{{items}}",
     "placeholderModule": "{{module}}（开发中）"
   },
@@ -2417,7 +2417,7 @@
   },
   "aiSettings": {
     "title": "AI 设置",
-    "sub": "平台级大模型配置——EasyFuSa 智能生成与 A-SPICE AI 搭建共用；未配置则自动使用内置模板",
+    "sub": "平台级大模型配置——功能安全智能生成与 A-SPICE AI 搭建共用；未配置则自动使用内置模板",
     "chain": "当前生效链：后台配置 → 环境变量 → 内置模板",
     "effDb": "后台配置生效",
     "effEnv": "环境变量生效",
@@ -2439,7 +2439,7 @@
     "note": "安全提示：演示/私有化环境建议优先用环境变量（AI_API_KEY/AI_BASE_URL/AI_MODEL）；页面配置的 Key 存储在平台数据库。AI 生成的工程数据一律为草稿，需工程确认（ASIL 定级由平台判定表计算，AI 无定级权）。",
     "keySet": "Key 已配置",
     "keyClear": "清除 Key",
-    "gatewaySub": "平台级 AI 已统一接入 {{brand}} 网关：EasyFuSa 智能生成与 A-SPICE AI 搭建共用同一出口，配额与预算由网关统一管控。",
+    "gatewaySub": "平台级 AI 已统一接入 {{brand}} 网关：功能安全智能生成与 A-SPICE AI 搭建共用同一出口，配额与预算由网关统一管控。",
     "gatewayOn": "已接入 {{brand}} AI 网关",
     "gatewayOff": "未接入网关（AI 生成走内置模板）",
     "gatewayUrl": "网关地址",

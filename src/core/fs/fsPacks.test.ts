@@ -1,4 +1,4 @@
-// EasyFuSa 二期 M2：行业包数据完整性（S/E/C 枚举合法 / 引擎可回算 / 句式占位替换）
+// tuoleX FS 二期 M2：行业包数据完整性（S/E/C 枚举合法 / 引擎可回算 / 句式占位替换）
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { asilOfRaw } from './asil';

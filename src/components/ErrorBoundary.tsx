@@ -12,7 +12,7 @@ class ErrorBoundary extends Component<{ children: ReactNode } & WithTranslation,
   }
 
   componentDidCatch(error: Error, info: unknown) {
-    console.error('[EasyAuto] 组件错误：', error, info);
+    console.error('[tuoleX auto] 组件错误：', error, info);
   }
 
   render() {

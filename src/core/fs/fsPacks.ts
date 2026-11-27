@@ -1,6 +1,6 @@
-// ============ EasyFuSa 行业模板包注册表（二期 M2） ============
+// ============ tuoleX FS 行业模板包注册表（二期 M2） ============
 // 包 = 域模板集合：HARA 危害事件（S/E/C 参考值，ASIL 一律引擎 Table4 回算）+ 域 SG 句式（本地骨架 fallback）
-// 全部条目标注「示例数据，需工程确认」；来源域见 docs/EasyFuSa-行业包调研.md（多源公开资料交叉，非标准文本）
+// 全部条目标注「示例数据，需工程确认」；来源域见 内部领域笔记（多源公开资料交叉，非标准文本）
 // 新增包 = 在 FS_PACKS 追加一条（+域 FMEDA 键入 data.ts FMEDA_ROW_TEMPLATES），零代码改动；包体超红线再拆 json 懒加载
 import type { FsHazardTemplate } from './data';
 

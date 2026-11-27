@@ -335,7 +335,7 @@ CREATE TABLE IF NOT EXISTS doc_versions (
 );
 CREATE INDEX IF NOT EXISTS idx_doc_versions_doc ON doc_versions("docId");
 
--- ============ A-SPICE 扩展表（EasyAuto）============
+-- ============ A-SPICE 扩展表（tuoleX auto）============
 CREATE TABLE IF NOT EXISTS aspice_processes (
   id SERIAL PRIMARY KEY,
   code TEXT NOT NULL,
@@ -488,7 +488,7 @@ CREATE TABLE IF NOT EXISTS ai_configs (
   "updatedBy" TEXT
 );
 
--- ============ EasyFuSa 功能安全域（ISO 26262）8 表 ============
+-- ============ tuoleX FS 功能安全域（ISO 26262）8 表 ============
 CREATE TABLE IF NOT EXISTS fs_hazards (
   id SERIAL PRIMARY KEY,
   "projectId" INT NOT NULL,
@@ -626,7 +626,7 @@ CREATE TABLE IF NOT EXISTS fs_plan_items (
 );
 CREATE INDEX IF NOT EXISTS idx_fs_plan_pid ON fs_plan_items("projectId");
 
--- EasyFuSa 正式评估报告（二期 M3）：导出即冻结（快照 + SHA-256）
+-- tuoleX FS 正式评估报告（二期 M3）：导出即冻结（快照 + SHA-256）
 CREATE TABLE IF NOT EXISTS fs_reports (
   id SERIAL PRIMARY KEY,
   "projectId" INT NOT NULL,
@@ -654,7 +654,7 @@ CREATE TABLE IF NOT EXISTS fs_case_patterns (
   "updatedAt" BIGINT NOT NULL
 );
 
--- EasyFuSa 工具资质（ISO 26262-8:2018 Cl.11 TCL）
+-- tuoleX FS 工具资质（ISO 26262-8:2018 Cl.11 TCL）
 CREATE TABLE IF NOT EXISTS tq_tools (
   id SERIAL PRIMARY KEY,
   "projectId" INT NOT NULL,
@@ -813,11 +813,11 @@ export const TABLES = [
   'aspice_processes', 'work_products', 'reviews', 'assessments', 'wp_templates',
   'config_items', 'baselines',
   'feedback', 'feedback_comments', 'project_members', 'ebom_docs',
-  // EasyFuSa 功能安全域
+  // tuoleX FS 功能安全域
   'fs_hazards', 'fs_safety_reqs', 'fs_fmeda', 'fs_fta', 'fs_dfa', 'fs_safety_cases', 'fs_confirm_measures', 'fs_plan_items', 'fs_reports',
   // Safety Case 论证模式库（平台级）
   'fs_case_patterns',
-  // EasyFuSa 工具资质（ISO 26262-8 Cl.11 TCL）
+  // tuoleX FS 工具资质（ISO 26262-8 Cl.11 TCL）
   'tq_tools', 'tq_assessments', 'tq_measures',
   // 注意：ai_configs（含 apiKey 明文）不进表白名单——仅 admin 专用路由 /api/ai/config 可读写，
   // 若进 TABLES 则 crud /api/data/ai_configs 会对所有登录用户开放（无项目过滤）→ 密钥泄露
@@ -841,7 +841,7 @@ export async function initSchema(): Promise<void> {
   await pool.query('CREATE INDEX IF NOT EXISTS idx_reg_publish ON regulations("publishDate")');
   // 增量迁移：旧库补 pinned_at（置顶）列
   await pool.query('ALTER TABLE feedback ADD COLUMN IF NOT EXISTS pinned_at BIGINT');
-  // 增量迁移：EasyFuSa M2——fs_hazards 来源包标注 / projects 产品域（fsSysType=行业包 id）
+  // 增量迁移：tuoleX FS M2——fs_hazards 来源包标注 / projects 产品域（fsSysType=行业包 id）
   await pool.query('ALTER TABLE fs_hazards ADD COLUMN IF NOT EXISTS "srcPack" TEXT');
   await pool.query('ALTER TABLE projects ADD COLUMN IF NOT EXISTS "fsSysType" TEXT');
   // 增量迁移：change_controls 审批工作流字段
@@ -869,7 +869,7 @@ export async function initSchema(): Promise<void> {
   await pool.query('ALTER TABLE fmea_items ADD COLUMN IF NOT EXISTS asil TEXT');
   // 增量迁移：fs_safety_reqs 分解原级（X(Y) 记号与按原级取度量/独立性）
   await pool.query('ALTER TABLE fs_safety_reqs ADD COLUMN IF NOT EXISTS "asilFrom" TEXT');
-  // 增量迁移：projects 启用 EasyFuSa 功能安全域（fsEnabled 项目隐藏 ASPICE 过程区）
+  // 增量迁移：projects 启用 tuoleX FS 功能安全域（fsEnabled 项目隐藏 ASPICE 过程区）
   await pool.query('ALTER TABLE projects ADD COLUMN IF NOT EXISTS "fsEnabled" BOOLEAN NOT NULL DEFAULT false');
   await pool.query('ALTER TABLE projects ADD COLUMN IF NOT EXISTS "fsVersion" TEXT');
 }

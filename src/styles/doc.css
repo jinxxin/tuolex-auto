@@ -208,7 +208,7 @@
   .ant-tabs-content, .ant-tabs-body, .ant-tabs-body-holder { overflow-x: hidden; }
 }
 
-/* EasyFuSa 帮助指南（fs-guide）markdown 基础样式 */
+/* tuoleX FS 帮助指南（fs-guide）markdown 基础样式 */
 .fs-guide h1 { font-size: 22px; margin: 18px 0 10px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
 .fs-guide h2 { font-size: 17px; margin: 20px 0 8px; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px; }
 .fs-guide h3 { font-size: 15px; margin: 14px 0 6px; }

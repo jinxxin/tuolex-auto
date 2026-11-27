@@ -10,7 +10,7 @@ import WpWorkspace from '../projects/WpWorkspace';
 import VEntryCenter from '../projects/VEntryCenter';
 import TraceMatrixTab from '../projects/TraceMatrixTab';
 
-// 家族 IA 统一：把「过程/V 模型」模块从项目详情 tab 抽为菜单级「软件过程(A-SPICE)」页。
+// IA 统一：把「过程/V 模型」模块从项目详情 tab 抽为菜单级「软件过程(A-SPICE)」页。
 // 渐进式：先新增这些菜单页（复用现有组件），旧 tab 暂时保留，验证后再撤。
 
 function useCurProject() {

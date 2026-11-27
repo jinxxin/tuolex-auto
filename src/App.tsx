@@ -21,7 +21,7 @@ const FsSafetyCasePage = lazy(() => import('./modules/fs/SafetyCasePage'));
 const FsConfirmPage = lazy(() => import('./modules/fs/ConfirmPage'));
 const FsPlanPage = lazy(() => import('./modules/fs/PlanPage'));
 
-// 家族 IA：菜单级「软件过程(A-SPICE)」页（复用项目详情组件）
+// IA：菜单级「软件过程(A-SPICE)」页（复用项目详情组件）
 const ProcessPage = lazy(() => import('./modules/process/pages').then((m) => ({ default: m.ProcessPage })));
 const AssessPage = lazy(() => import('./modules/process/pages').then((m) => ({ default: m.AssessPage })));
 const WpPage = lazy(() => import('./modules/process/pages').then((m) => ({ default: m.WpPage })));
@@ -38,7 +38,7 @@ const SignatureCenterPage = lazy(() => import('./modules/signatures/SignatureCen
 const ExportCenterPage = lazy(() => import('./modules/export/ExportCenterPage'));
 const DocsPage = lazy(() => import('./modules/docs/DocsPage'));
 const DocEditorPage = lazy(() => import('./modules/docs/DocEditorPage'));
-// EasyFuSa 功能安全域
+// tuoleX FS 功能安全域
 import { useAuth, restoreSession } from './store/auth';
 import { seedIfEmpty } from './core/seed';
 

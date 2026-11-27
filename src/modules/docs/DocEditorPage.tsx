@@ -31,7 +31,7 @@ import { ENTRY_DEFS, DOC_ENTRY_TYPES, type DocEntryType, type EntrySnap, type Re
 
 const { Text, Title } = Typography;
 
-// 条目类型注册表见 core/docEntries.ts（家族规范「条目-快照」原则）
+// 条目类型注册表见 core/docEntries.ts（「条目-快照」原则）
 const ENTRY_ICON: Record<string, React.ReactNode> = {
   req: <FileTextOutlined style={{ color: '#1b6ca8' }} />,
   tc: <ExperimentOutlined style={{ color: '#0ca678' }} />,
