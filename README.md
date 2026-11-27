@@ -3,6 +3,8 @@
 
 **简体中文** ｜ [English](#english)
 
+[![ci](https://github.com/jinxxin/tuolex-auto/actions/workflows/ci.yml/badge.svg)](https://github.com/jinxxin/tuolex-auto/actions/workflows/ci.yml)
+
 > 汽车软件过程与证据管理工具，自托管、可审计、无遥测。
 
 ## 这是什么

@@ -4,7 +4,7 @@
 
 Format follows Keep a Changelog; version numbers follow SemVer.
 
-## [0.1.0] — Unreleased
+## [0.1.0] — 2026-11-27
 
 The first self-hostable version.
 
