@@ -19,12 +19,15 @@ Runtime dependencies (all under permissive licenses that allow commercial use an
 | html2canvas | MIT |
 | jszip | MIT / GPL-3.0 (dual-licensed; this project uses it under MIT) |
 | marked | MIT |
-| xlsx (SheetJS) | Apache-2.0 |
+| xlsx (SheetJS) | Apache-2.0 (official CDN tarball vendored in this repository) |
 | TipTap packages | MIT |
 | Express / cors / bcryptjs / pg / jsonwebtoken | MIT |
 | PostgreSQL | PostgreSQL License |
 
 The full dependency tree and versions are in `package.json` / `server/package.json`.
+
+SheetJS is vendored as a tarball at `vendor/xlsx-0.20.3.tgz` (SHA-256 in the `.sha256` file next to it)
+so that builds and installs do not depend on an external CDN.
 
 The **text of standards and regulations is not in this repository**: the repository contains only process names and our own descriptions, and does not copy any standard clause text.
 Copyright in standard names and clauses belongs to their respective publishers.

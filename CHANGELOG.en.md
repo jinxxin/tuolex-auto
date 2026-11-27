@@ -28,3 +28,4 @@ The first self-hostable version.
 
 - Demo data consists of fictional cases and is only for exploring the UI; disable it with `SEED_DEMO=false`.
 - Audit and signatures are engineering traceability mechanisms; they are not equivalent to a certification body's conclusion.
+- SheetJS is vendored in this repository (`vendor/`), so installs and builds do not depend on an external CDN.

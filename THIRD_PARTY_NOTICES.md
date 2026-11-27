@@ -19,12 +19,15 @@
 | html2canvas | MIT |
 | jszip | MIT / GPL-3.0（双许可，本项目按 MIT 使用） |
 | marked | MIT |
-| xlsx (SheetJS) | Apache-2.0 |
+| xlsx (SheetJS) | Apache-2.0（官方 CDN tarball 随仓库内置） |
 | TipTap 系列 | MIT |
 | Express / cors / bcryptjs / pg / jsonwebtoken | MIT |
 | PostgreSQL | PostgreSQL License |
 
 完整依赖树与版本见 `package.json` / `server/package.json`。
+
+SheetJS 以 tarball 形式内置在 `vendor/xlsx-0.20.3.tgz`（SHA-256 见同目录 `.sha256`），
+避免构建与安装时依赖外部 CDN。
 
 标准与法规**正文不在本仓库内**：仓库只包含过程名称与自写的说明，不复制任何标准条款原文。
 标准名称与条款的著作权归各自发布机构所有。
