@@ -42,7 +42,7 @@ async function doSeed(): Promise<void> {
   }
 
   // ---- 示例项目（仅当无项目时；SEED_DEMO=false 可跳过）----
-  const demoOn = String(process.env.SEED_DEMO ?? 'true') !== 'false';
+  const demoOn = !['0', 'false', 'off', 'no'].includes(String(process.env.SEED_DEMO ?? 'true').trim().toLowerCase());
   const projCnt = (await pool.query('SELECT COUNT(*)::int AS n FROM projects')).rows[0].n;
   if (projCnt === 0 && demoOn) {
     const scope = ['SYS.1', 'SYS.2', 'SYS.3', 'SYS.4', 'SYS.5', 'SWE.1', 'SWE.2', 'SWE.3', 'SWE.4', 'SWE.5', 'SWE.6', 'SUP.1', 'SUP.2', 'SUP.4', 'SUP.5', 'SUP.7', 'SUP.8', 'SUP.9', 'MAN.3', 'MAN.5', 'MAN.6'];
