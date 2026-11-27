@@ -33,16 +33,38 @@ FMEDA 硬件度量、FTA、DFA、Safety Case、确认措施、安全计划）。
 
 ## 快速开始
 
+### 1. 前置条件
+
+- Docker Engine 24+（或 Docker Desktop / OrbStack），带 Compose v2
+- 2 核 / 4GB 内存起步，`8087` 端口空闲
+- 国内网络：Docker Hub 拉不动时先配 registry mirror，或直接用[预构建镜像](#用预构建镜像不本地构建)
+
+### 2. 拿到代码
+
 ```bash
-docker compose up -d
-# 打开 http://localhost:8087 → 首次会要求创建管理员账号
+git clone https://github.com/jinxxin/tuolex-auto.git
+cd tuolex-auto
 ```
 
-默认端口 8087，可用环境变量改：
+GitHub 访问不稳定时，用 tarball 兜底：
 
 ```bash
-WEB_PORT=9000 JWT_SECRET='换成一个长随机串' docker compose up -d
+curl -L https://api.github.com/repos/jinxxin/tuolex-auto/tarball/main | tar xz --strip-components=1
+cd tuolex-auto
 ```
+
+后续命令都在仓库根目录执行。
+
+### 3. 起服务
+
+```bash
+JWT_SECRET=$(openssl rand -hex 32) docker compose up -d
+# 打开 http://localhost:8087 → 自动进入「初始化管理员账号」
+```
+
+`JWT_SECRET` 不固定会每次重启随机生成，所有人被踢下线，生产务必固定。
+
+端口被占用时：`WEB_PORT=9000 JWT_SECRET=... docker compose up -d`；看日志：`docker compose logs -f api`。
 
 ### 用预构建镜像（不本地构建）
 
@@ -51,7 +73,24 @@ docker compose -f docker-compose.ghcr.yml up -d
 # 固定版本：TOULEX_VERSION=0.1.0 docker compose -f docker-compose.ghcr.yml up -d
 ```
 
-首次启动后，系统会让你创建**本机管理员**（没有出厂默认密码）。账号只存在于你自己的数据库里。
+镜像在 GHCR 公开，无需登录；但 `db` 仍使用 Docker Hub 的 `postgres:16-alpine`。
+
+### 生产 / 团队使用
+
+- 不要直接把 8087 暴露到公网：放在 nginx / Caddy 反代后，配 HTTPS 与访问控制
+- 备份与恢复：
+
+  ```bash
+  docker compose exec -T db pg_dump -U tuolex tuolex_auto > backup.sql
+  cat backup.sql | docker compose exec -T db psql -U tuolex -d tuolex_auto
+  ```
+
+- 升级：先备份 → `git pull` → `docker compose up -d --build`
+- 卸载（含数据）：`docker compose down -v`
+- 演示数据：默认灌入；`SEED_DEMO=false docker compose up -d` 可关闭（`0/off/no` 也接受）
+- 国内 npm 慢：`NPM_REGISTRY=https://registry.npmmirror.com docker compose build web`
+
+首次启动后系统会让你创建**本机管理员**（没有出厂默认密码）。账号只存在于你自己的数据库里。
 
 ### 数据
 
@@ -68,7 +107,7 @@ docker compose exec db pg_dump -U tuolex tuolex_auto > backup.sql
 | `WEB_PORT` | 8087 | 对外端口 |
 | `POSTGRES_PASSWORD` | tuolex | 数据库密码（生产请改） |
 | `JWT_SECRET` | 随机（每次启动变化） | 会话签名密钥（生产必须固定，否则重启后登录态失效） |
-| `SEED_DEMO` | 1 | 是否灌入一个演示项目 |
+| `SEED_DEMO` | true | 是否灌入一个演示项目（`false`/`0`/`off` 关闭） |
 
 完整清单见 [`.env.example`](.env.example)。
 
@@ -80,7 +119,7 @@ src/core/       领域逻辑：过程树、追溯、审计、签名、功能安�
 src/modules/    页面模块
 server/src/     后端（Express + PostgreSQL）：认证、通用数据 API、审计链
 server/src/data 过程库与 WP 模板（自写描述，不含标准原文）
-deploy/         Dockerfile 与 nginx 配置
+deploy/         Dockerfile.api / Dockerfile.web.community / nginx.community.conf
 docs/           建模说明与功能安全使用指南
 ```
 
@@ -157,16 +196,38 @@ commercial edition; please contact the author for details.
 
 ### Quick start
 
+#### 1. Prerequisites
+
+- Docker Engine 24+ (or Docker Desktop / OrbStack) with Compose v2
+- 2 cores / 4 GB RAM, port `8087` free
+- In mainland China: configure a registry mirror if Docker Hub is slow, or use the [prebuilt images](#prebuilt-images-no-local-build)
+
+#### 2. Get the code
+
 ```bash
-docker compose up -d
-# open http://localhost:8087 → first launch asks you to create an administrator
+git clone https://github.com/jinxxin/tuolex-auto.git
+cd tuolex-auto
 ```
 
-Default port is 8087; override it with environment variables:
+If GitHub is unreliable, use the tarball fallback:
 
 ```bash
-WEB_PORT=9000 JWT_SECRET='a long random string' docker compose up -d
+curl -L https://api.github.com/repos/jinxxin/tuolex-auto/tarball/main | tar xz --strip-components=1
+cd tuolex-auto
 ```
+
+Run all following commands from the repository root.
+
+#### 3. Start
+
+```bash
+JWT_SECRET=$(openssl rand -hex 32) docker compose up -d
+# open http://localhost:8087 → first launch shows the administrator setup page
+```
+
+If `JWT_SECRET` is not fixed, it is regenerated on every restart and all sessions are lost — always set it in production.
+
+Port in use: `WEB_PORT=9000 JWT_SECRET=... docker compose up -d`. Logs: `docker compose logs -f api`.
 
 #### Prebuilt images (no local build)
 
@@ -174,6 +235,23 @@ WEB_PORT=9000 JWT_SECRET='a long random string' docker compose up -d
 docker compose -f docker-compose.ghcr.yml up -d
 # pin a version: TOULEX_VERSION=0.1.0 docker compose -f docker-compose.ghcr.yml up -d
 ```
+
+Images are public on GHCR (no login needed), but `db` still pulls `postgres:16-alpine` from Docker Hub.
+
+#### Production / team use
+
+- Do not expose 8087 directly: put it behind nginx / Caddy with HTTPS and access control
+- Backup and restore:
+
+  ```bash
+  docker compose exec -T db pg_dump -U tuolex tuolex_auto > backup.sql
+  cat backup.sql | docker compose exec -T db psql -U tuolex -d tuolex_auto
+  ```
+
+- Upgrade: back up first → `git pull` → `docker compose up -d --build`
+- Uninstall (including data): `docker compose down -v`
+- Demo data is seeded by default; disable with `SEED_DEMO=false docker compose up -d` (`0/off/no` also accepted)
+- Slow npm in China: `NPM_REGISTRY=https://registry.npmmirror.com docker compose build web`
 
 On first launch the system asks you to create a **local administrator** (there is no factory default
 password). Accounts exist only in your own database.
@@ -193,7 +271,7 @@ docker compose exec db pg_dump -U tuolex tuolex_auto > backup.sql
 | `WEB_PORT` | 8087 | Public HTTP port |
 | `POSTGRES_PASSWORD` | tuolex | Database password (change it in production) |
 | `JWT_SECRET` | random (changes on every start) | Session signing key (must be fixed in production, otherwise logins are lost on restart) |
-| `SEED_DEMO` | 1 | Whether to seed a demo project |
+| `SEED_DEMO` | true | Whether to seed a demo project (`false`/`0`/`off` to disable) |
 
 See [`.env.example`](.env.example) for the full list.
 
@@ -205,7 +283,7 @@ src/core/       Domain logic: process tree, traceability, audit, signatures, fun
 src/modules/    Page modules
 server/src/     Backend (Express + PostgreSQL): auth, generic data API, audit chain
 server/src/data Process library and WP templates (our own descriptions, no standards text)
-deploy/         Dockerfile and nginx configuration
+deploy/         Dockerfile.api / Dockerfile.web.community / nginx.community.conf
 docs/           Modeling notes and functional safety guide
 ```
 
