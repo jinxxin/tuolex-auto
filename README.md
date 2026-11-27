@@ -75,8 +75,8 @@ docs/           建模说明与功能安全使用指南
 
 ## 文档
 
-- [A-SPICE 过程模型（本项目如何建模）](docs/aspice-model.md)
-- [功能安全模块使用指南](docs/fs-guide.md)
+- [A-SPICE 过程模型（本项目如何建模）](docs/aspice-model.md) ｜ [English](docs/aspice-model.en.md)
+- [功能安全模块使用指南](docs/fs-guide.md) ｜ [English](docs/fs-guide.en.md)
 - [变更记录](CHANGELOG.md)
 
 ## 设计取舍
@@ -191,8 +191,8 @@ docs/           Modeling notes and functional safety guide
 
 ### Documentation
 
-- [A-SPICE process model (how this project models it)](docs/aspice-model.md)
-- [Functional safety module guide](docs/fs-guide.md)
+- [A-SPICE process model (how this project models it)](docs/aspice-model.en.md) ｜ [简体中文](docs/aspice-model.md)
+- [Functional safety module guide](docs/fs-guide.en.md) ｜ [简体中文](docs/fs-guide.md)
 - [Changelog](CHANGELOG.md)
 
 ### Design trade-offs
