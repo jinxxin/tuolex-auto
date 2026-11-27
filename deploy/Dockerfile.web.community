@@ -6,6 +6,8 @@ ARG NPM_REGISTRY=https://registry.npmjs.org
 RUN npm ci --registry=$NPM_REGISTRY --no-audit --no-fund \
         --fetch-retries=5 --fetch-retry-maxtimeout=120000 --fetch-timeout=600000
 COPY . .
+# 限制 Node 堆，避免构建把 8G 小机器打到 OOM（2026-11-27 事故）
+ENV NODE_OPTIONS=--max-old-space-size=2048
 RUN npm run build
 
 FROM nginx:1.27-alpine

@@ -32,7 +32,8 @@
     "preview": "vite preview --host",
     "i18n:check": "node scripts/check-i18n-keys.mjs",
     "i18n:scan": "node scripts/en-scan.mjs",
-    "test:fs": "tsx --test src/core/fs/asil.test.ts src/core/fs/chain.test.ts src/core/fs/fsPacks.test.ts src/core/tq/tcl.test.ts"
+    "test:fs": "tsx --test src/core/fs/asil.test.ts src/core/fs/chain.test.ts src/core/fs/fsPacks.test.ts src/core/tq/tcl.test.ts",
+    "build:images": "bash scripts/safe-build.sh"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",
