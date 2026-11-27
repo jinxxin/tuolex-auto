@@ -1,4 +1,7 @@
+<a name="zh"></a>
 # tuoleX auto · 社区版
+
+**简体中文** ｜ [English](#english)
 
 > 汽车软件过程与证据管理工具，自托管、可审计、无遥测。
 > 内部代号 `easyauto`；对外名称 `tuoleX auto`（写作 `tuoleauto`）。
@@ -104,3 +107,123 @@ Apache-2.0（见 `LICENSE`）。标准文本不随本仓库分发；文中出现
 ## 联系
 
 问题、部署求助、商业版咨询：`jinxxin@live.com`
+
+---
+
+<a name="english"></a>
+## English
+
+[简体中文](#zh) ｜ **English**
+
+> Automotive software process and evidence management — self-hosted, auditable, no telemetry.
+> Internal codename `easyauto`; public name `tuoleX auto` (written `tuoleauto`).
+
+### What this is
+
+tuoleX auto puts A-SPICE processes, work products, traceability, reviews and electronic signatures,
+and change records into a system you can deploy yourself. It is aimed at teams that want to establish
+"process + evidence" inside their own environment without handing data to a third party.
+
+**Included in the Community Edition**: local accounts, projects and members, A-SPICE process tree and
+work products, requirements/traceability matrix, reviews and electronic signatures, hash-chained audit
+trail, change/issue management (quality system), FMEA, and the **functional safety domain** (HARA,
+safety requirement chain SG/FSC/TSC, FMEDA hardware metrics, FTA, DFA, safety case, confirmation
+measures, safety plan). CSV/JSON export.
+
+**Not included**: standards and regulatory content library (no standards text is bundled), AI-assisted
+scaffolding, family collaboration (BOM/3D), multi-tenancy and trial provisioning. These belong to the
+commercial edition; please contact the author for details.
+
+### Screenshots
+
+| Workspace | Traceability matrix |
+|---|---|
+| ![Workspace](docs/screenshots/dashboard.png) | ![Traceability matrix](docs/screenshots/trace-matrix.png) |
+
+| Functional safety · HARA | Safety requirement chain |
+|---|---|
+| ![HARA](docs/screenshots/fs-hara.png) | ![Safety requirement chain](docs/screenshots/fs-chain.png) |
+
+### Quick start
+
+```bash
+docker compose up -d
+# open http://localhost:8087 → first launch asks you to create an administrator
+```
+
+Default port is 8087; override it with environment variables:
+
+```bash
+WEB_PORT=9000 JWT_SECRET='a long random string' docker compose up -d
+```
+
+On first launch the system asks you to create a **local administrator** (there is no factory default
+password). Accounts exist only in your own database.
+
+#### Data
+
+PostgreSQL 16, data volume `pgdata`. Backup:
+
+```bash
+docker compose exec db pg_dump -U tuolex tuolex_auto > backup.sql
+```
+
+### Configuration
+
+| Variable | Default | Description |
+|---|---|---|
+| `WEB_PORT` | 8087 | Public HTTP port |
+| `POSTGRES_PASSWORD` | tuolex | Database password (change it in production) |
+| `JWT_SECRET` | random (changes on every start) | Session signing key (must be fixed in production, otherwise logins are lost on restart) |
+| `SEED_DEMO` | 1 | Whether to seed a demo project |
+
+See [`.env.example`](.env.example) for the full list.
+
+### Layout
+
+```
+src/            Frontend (React + Vite + Dexie local cache)
+src/core/       Domain logic: process tree, traceability, audit, signatures, functional safety (fs/)
+src/modules/    Page modules
+server/src/     Backend (Express + PostgreSQL): auth, generic data API, audit chain
+server/src/data Process library and WP templates (our own descriptions, no standards text)
+deploy/         Dockerfile and nginx configuration
+docs/           Modeling notes and functional safety guide
+```
+
+### Documentation
+
+- [A-SPICE process model (how this project models it)](docs/aspice-model.md)
+- [Functional safety module guide](docs/fs-guide.md)
+- [Changelog](CHANGELOG.md)
+
+### Design trade-offs
+
+- **Local-first**: no external authentication service; works offline.
+- **No telemetry**: no usage data is sent anywhere.
+- **Verifiable audit**: the audit log is a hash chain; tampering is exposed when it is verified.
+- **Read-only demo**: feel free to explore with the demo data; use your own projects in production.
+
+### Maintenance commitment
+
+- **Best-effort**: maintained by an individual; no response-time or roadmap commitment.
+- **Quarterly sync**: the Community Edition absorbs upstream changes once per quarter; it does not
+  follow every internal release.
+- **No custom development**: issues are welcome, but custom work is not accepted; for enterprise
+  needs, contact the author by email.
+- **Scope boundaries**: no standards text, no SaaS, no telemetry.
+
+### License
+
+Apache-2.0 (see `LICENSE`). Standards texts are not distributed with this repository; standard names
+mentioned here belong to their respective publishers. See [TRADEMARKS.md](TRADEMARKS.md) for name and
+mark usage.
+
+### Contributing and security
+
+- Contribution workflow and code conventions: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Vulnerability reports (please do not open a public issue): [SECURITY.md](SECURITY.md)
+
+### Contact
+
+Questions, deployment help, commercial edition: `jinxxin@live.com`
